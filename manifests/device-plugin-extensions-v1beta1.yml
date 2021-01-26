@@ -38,7 +38,8 @@ spec:
       initContainers:
       - name: set-compute-mode
         image: nvidia/cuda:latest
-        command: ['nvidia-smi', '-c', 'EXCLUSIVE_PROCESS']
+        command: ['nvidia-smi' ]
+        args: ['-c', 'EXCLUSIVE_PROCESS']
         securityContext:
           capabilities:
             add: ["SYS_ADMIN"]

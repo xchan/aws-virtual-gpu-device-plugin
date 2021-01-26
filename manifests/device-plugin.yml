@@ -38,16 +38,16 @@ spec:
       initContainers:
       - name: set-compute-mode
         image: nvidia/cuda:latest
-        command: ['nvidia-smi', '-c', 'EXCLUSIVE_PROCESS']
+        command: ['nvidia-smi']
+        args: ['-c', 'EXCLUSIVE_PROCESS']
         securityContext:
           capabilities:
             add: ["SYS_ADMIN"]
       containers:
       - image: amazon/aws-virtual-gpu-device-plugin:v0.1.1
         name: aws-virtual-gpu-device-plugin-ctr
-        args:
-        - /usr/bin/vgpu-device-plugin
-        - --vgpu=10
+        command: ['/usr/bin/vgpu-device-plugin']
+        args: ['--vgpu=10']
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

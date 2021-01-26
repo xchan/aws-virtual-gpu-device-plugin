@@ -27,4 +27,4 @@ ENV NVIDIA_DRIVER_CAPABILITIES=utility
 
 COPY --from=build /go/src/github.com/awslabs/aws-virtual-gpu-device-plugin/virtual-gpu-device-plugin /usr/bin/virtual-gpu-device-plugin
 
-CMD ["virtual-gpu-device-plugin"]
+ENTRYPOINT [ "virtual-gpu-device-plugin" ]
