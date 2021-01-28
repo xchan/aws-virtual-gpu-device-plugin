@@ -90,6 +90,12 @@ spec:
 
 Check the full example [here](./examples/README.md)
 
+### Exclude nvidia-mps files from scheduled cleaning
+
+Some OS clean tmpfs files periodically, please exclude /tmp/nvidia from thatt service. See tmpfiles.d(5) for details.
+
+Example [here](./manifests/aws-eks/nvidia-mps.conf)
+
 ## Development
 
 Please check [Development](./DEVELOPMENT.md) for more details.
